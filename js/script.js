@@ -25,7 +25,7 @@ const main = document.querySelector('main')
     const square = createSquare();
     const randomNumber = i;
     square.innerHTML += `${randomNumber}`;
-
+    
   
     
     button.addEventListener('click', removeElem)
@@ -73,18 +73,24 @@ function removeElem(){
 
 //! seconda parte 
 /* costruisco la funzione per il numero random che contengono le bombe*/ 
-
-function bombe ( ){
  const arrayBombe =[]; 
+function bombe ( ){
+
   console.log(arrayBombe)
-    for(let i=1;i<=16;i++){
- 
     
-   
   
-    const numRandom = Math.floor(
+  
+  for(let i=1;i<=16;i++){
+   let numRandom = Math.floor(
         Math.random()*100) +1;
-     arrayBombe.push(numRandom);
+     //arrayBombe.push(numRandom);
+     if(arrayBombe[i]==numRandom){
+        numRandom = Math.floor(
+            Math.random()*100) +1;
+
+     }else{
+        arrayBombe.push(numRandom);
+     }
 }
      return arrayBombe;
 
