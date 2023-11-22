@@ -28,8 +28,9 @@ for (let i = 1; i <= 100; i++) {
   square.addEventListener("click", function () {
     //Aggiungo in questo click la condizione per veere se si perde, cioè becca il numero uguale nell'array oppure si vince sommando il punteggio
     
+   
 
-
+conta()
     for (let i=0;i<arrayBombe.length;i++){
        number=arrayBombe[i];
        console.log(number);
@@ -38,7 +39,7 @@ for (let i = 1; i <= 100; i++) {
           square.classList.add("bgcolor");
           console.log('hai perso');
           
-          alert('GAMEOVER');
+          alert(`GAMEOVER`);
          setTimeout(function rigioca(){
           location.reload();
         },1000);
@@ -125,4 +126,11 @@ function bombe() {
 bombe();
 
 
+//contatore per le volte cliccato il box con il numero
 
+let contatore = 0;
+
+function conta(){
+  contatore= contatore+1;
+  punteggio.innerHTML=`punteggio ${contatore}`;
+}
