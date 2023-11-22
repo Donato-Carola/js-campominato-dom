@@ -30,11 +30,15 @@ const main = document.querySelector('main')
     
     button.addEventListener('click', removeElem)
 
-    square.addEventListener('click', function(){
+    square.addEventListener('click', function(){               //Aggiungo in questo click la condizione per veere se si perde, cioè becca il numero uguale nell'array oppure si vince sommando il punteggio
         square.classList.add('bgcolor')
         console.log(i)
-        
+      //IF randomNumber (cioè il numero che è all'interno del mio span, in questo caso) è diverso al arrayBombe[i](cioè al numero all'interno dell'array)
+      //Scirvi in innerhtml la somma del punteggio;
+      //Else, scrivi con un aler GameOver ed esce dal IF   
     })
+
+    
   }
 
 
@@ -88,8 +92,8 @@ function bombe ( ){
         arrayBombe.push(numRandom);
      }
 }*/
-
-while(arrayBombe.length<=16){
+arrayBombe.length=1;
+while(arrayBombe.length<=15){
     let numRandom = Math.floor( Math.random()*100) +1;
     if(!arrayBombe.includes(numRandom))
        arrayBombe.push(numRandom)
