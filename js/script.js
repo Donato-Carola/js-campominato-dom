@@ -75,12 +75,13 @@ function removeElem(){
 /* costruisco la funzione per il numero random che contengono le bombe*/ 
 
 function bombe ( ){
- const arrayBombe =[];
+ const arrayBombe =[]; 
+  console.log(arrayBombe)
     for(let i=1;i<=16;i++){
  
     
    
-    console.log(arrayBombe)
+  
     const numRandom = Math.floor(
         Math.random()*100) +1;
      arrayBombe.push(numRandom);
