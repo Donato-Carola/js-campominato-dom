@@ -11,44 +11,52 @@ Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a c
 La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba. */
 
-
-
-
-
 const button = document.querySelector("button");
 const mainGrid = document.querySelector("section");
-const main = document.querySelector('main')
+const main = document.querySelector("main");
 
-//! Evento aggiunto al button, il quale una volta cliccato compaiono i numeri 
- 
-    for (let i = 1; i <= 100; i++) {
-    const square = createSquare();
-    const randomNumber = i;
-    square.innerHTML += `${randomNumber}`;
-    
-  
-    
-    button.addEventListener('click', removeElem)
+//! Evento aggiunto al button, il quale una volta cliccato compaiono i numeri
 
-    square.addEventListener('click', function(){               //Aggiungo in questo click la condizione per veere se si perde, cioè becca il numero uguale nell'array oppure si vince sommando il punteggio
-        square.classList.add('bgcolor')
+for (let i = 1; i <= 100; i++) {
+  const square = createSquare();
+  const randomNumber = i;
+  square.innerHTML += `${randomNumber}`;
+
+  button.addEventListener("click", removeElem);
+
+  square.addEventListener("click", function () {
+    //Aggiungo in questo click la condizione per veere se si perde, cioè becca il numero uguale nell'array oppure si vince sommando il punteggio
+    
+    for (let i=0;i<arrayBombe.length;i++){
+       number=arrayBombe[i]
+       console.log(number)
+        if(randomNumber===number){
+          console.log('hai perso')
+          square.classList.add("bgcolor")
+        }else{
+          square.classList.add("bgcolorTwo");
+          console.log('hai vinto')
+        }
+
+
+    }
+    
+    
+    //square.classList.add("bgcolor");
+    //console.log(i);
+
+    // usato un do while per vedere se funzionasse, nel senso colora blu finche il numero random è uguale al numero allinterno dell'array
+    /*do {
+         square.classList.add('bgcolor')
         console.log(i)
-      //IF randomNumber (cioè il numero che è all'interno del mio span, in questo caso) è diverso al arrayBombe[i](cioè al numero all'interno dell'array)
-      //Scirvi in innerhtml la somma del punteggio;
-      //Else, scrivi con un aler GameOver ed esce dal IF   
-    })
+      }
+      while(randomNumber===arrayBombe);*/
 
-    
-  }
-
-
-  
- 
-   
- 
-
-
-
+    //IF randomNumber (cioè il numero che è all'interno del mio span, in questo caso) è diverso al arrayBombe[i](cioè al numero all'interno dell'array)
+    //Scirvi in innerhtml la somma del punteggio;
+    //Else, scrivi con un aler GameOver ed esce dal IF
+  });
+}
 
 //! Funzione creare i numeri random a nostro piacimento
 function numberRandom(minNumber, maxNumber) {
@@ -65,23 +73,21 @@ function createSquare() {
   return createElemSquare;
 }
 
-function removeElem(){
-
-   /* const elemRemove = document.querySelector('section')
+function removeElem() {
+  /* const elemRemove = document.querySelector('section')
     elemRemove.classList.toggle('removeList')
     return elemRemove;*/
-    location.reload();
+  location.reload();
 }
 
+//! seconda parte
+/* costruisco la funzione per il numero random che contengono le bombe*/
 
+const arrayBombe = [];
 
-//! seconda parte 
-/* costruisco la funzione per il numero random che contengono le bombe*/ 
- const arrayBombe =[]; 
-function bombe ( ){
-
-  console.log(arrayBombe)
-    /*for(let i=1;i<=16;i++){
+function bombe() {
+  console.log(arrayBombe);
+  /*for(let i=1;i<=16;i++){
    let numRandom = Math.floor( Math.random()*100) +1;
      //arrayBombe.push(numRandom);
      if(arrayBombe[i]==numRandom){
@@ -92,20 +98,15 @@ function bombe ( ){
         arrayBombe.push(numRandom);
      }
 }*/
-arrayBombe.length=1;
-while(arrayBombe.length<=15){
-    let numRandom = Math.floor( Math.random()*100) +1;
-    if(!arrayBombe.includes(numRandom))
-       arrayBombe.push(numRandom)
 
+  while (arrayBombe.length <= 15) {
+    let numRandom = Math.floor(Math.random() * 100) + 1;
+    if (!arrayBombe.includes(numRandom)) 
+    arrayBombe.push(numRandom);
+  }
+  
+
+  return arrayBombe;
 }
 
-
-
-
-
-     return arrayBombe;
-
-}
-
-bombe()
+bombe();

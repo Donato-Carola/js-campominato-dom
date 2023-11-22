@@ -52,7 +52,7 @@ main>section>span{
 
 }
 
-.bgcolor{
+.bgcolorTwo{
     background-color:aqua;
 }
 
@@ -62,4 +62,8 @@ main>section>span{
 
 .addList{
     display:inline-block
+}
+
+.bgcolor{
+    background-color: rgb(158, 65, 65);
 }
