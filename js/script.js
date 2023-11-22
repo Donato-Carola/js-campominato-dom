@@ -77,12 +77,8 @@ function removeElem(){
 function bombe ( ){
 
   console.log(arrayBombe)
-    
-  
-  
-  for(let i=1;i<=16;i++){
-   let numRandom = Math.floor(
-        Math.random()*100) +1;
+    /*for(let i=1;i<=16;i++){
+   let numRandom = Math.floor( Math.random()*100) +1;
      //arrayBombe.push(numRandom);
      if(arrayBombe[i]==numRandom){
         numRandom = Math.floor(
@@ -91,7 +87,19 @@ function bombe ( ){
      }else{
         arrayBombe.push(numRandom);
      }
+}*/
+
+while(arrayBombe.length<=16){
+    let numRandom = Math.floor( Math.random()*100) +1;
+    if(!arrayBombe.includes(numRandom))
+       arrayBombe.push(numRandom)
+
 }
+
+
+
+
+
      return arrayBombe;
 
 }
