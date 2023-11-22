@@ -15,8 +15,7 @@ header{
 
 main{
     background-color:rgb(127, 255, 212) ;
-    height: 1000px;
-    
+   
     
 }
 
@@ -29,7 +28,7 @@ button{
     background-color: aqua;
 }
 
-section{
+section#grid{
     height: 800px;
     width: 800px;
     margin: 0 auto;
@@ -66,4 +65,10 @@ main>section>span{
 
 .bgcolor{
     background-color: rgb(158, 65, 65);
+    
+}
+
+main>section>h3{
+    text-align: center;
+    padding: 2rem 0;
 }

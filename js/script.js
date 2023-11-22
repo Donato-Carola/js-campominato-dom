@@ -14,6 +14,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 const button = document.querySelector("button");
 const mainGrid = document.querySelector("section");
 const main = document.querySelector("main");
+const punteggio=document.querySelector('h3')
 
 //! Evento aggiunto al button, il quale una volta cliccato compaiono i numeri
 
@@ -21,7 +22,7 @@ for (let i = 1; i <= 100; i++) {
   const square = createSquare();
   const randomNumber = i;
   square.innerHTML += `${randomNumber}`;
-
+  
   button.addEventListener("click", removeElem);
 
   square.addEventListener("click", function () {
@@ -29,22 +30,25 @@ for (let i = 1; i <= 100; i++) {
     
 
 
-
     for (let i=0;i<arrayBombe.length;i++){
        number=arrayBombe[i];
        console.log(number);
 
         if(randomNumber===number){
-          console.log('hai perso');
           square.classList.add("bgcolor");
-          alert('GAMEOVER')
+          console.log('hai perso');
+          
+          alert('GAMEOVER');
          setTimeout(function rigioca(){
           location.reload();
-        },1000)
+        },1000);
           
         }else{
+         
           square.classList.add("bgcolorTwo");
-          console.log('hai vinto')
+          //punteggio.innerHTML=(`il tuo punteggio è ${}`)
+          console.log('hai vinto');
+          
         }
 
 
